@@ -8,19 +8,31 @@ public class FluffyslippersTest {
     @Test
     public void constructorTest() {
         //given (1)
-        String expectedName = "Biddy";
         int expectedId = 6;
+        String expectedName = "Biddy";
         String expectedBrand = "Booboo's";
+        String expectedSport = "Sleep";
+        int expectedSize = 7;
+        int expectedQty = 10;
+        float expectedPrice = 15.00f;
 
         //when (2)
-        Fluffyslippers testFluffyslippers = new Fluffyslippers(expectedId, expectedName, expectedBrand);
-        String actualBrand = testFluffyslippers.getBrand();
-        String actualName = testFluffyslippers.getName();
+        Fluffyslippers testFluffyslippers = new Fluffyslippers(expectedId, expectedName, expectedBrand, expectedSport, expectedSize, expectedQty, expectedPrice);
         int actualId = testFluffyslippers.getId();
+        String actualName = testFluffyslippers.getName();
+        String actualBrand = testFluffyslippers.getBrand();
+        String actualSport = testFluffyslippers.getSport();
+        int actualSize = testFluffyslippers.getSize();
+        int actualQty = testFluffyslippers.getQty();
+        float actualPrice = testFluffyslippers.getPrice();
 
         //then (3)
         Assertions.assertEquals(expectedId, actualId);
         Assertions.assertEquals(expectedName, actualName);
         Assertions.assertEquals(expectedBrand, actualBrand);
+        Assertions.assertEquals(expectedSport, actualSport);
+        Assertions.assertEquals(expectedSize, actualSize);
+        Assertions.assertEquals(expectedQty, actualQty);
+        Assertions.assertEquals(expectedPrice, actualPrice);
     }
 }
