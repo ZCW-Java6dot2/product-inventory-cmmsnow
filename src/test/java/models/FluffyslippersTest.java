@@ -8,7 +8,7 @@ public class FluffyslippersTest {
     @Test
     public void constructorTest() {
         //given (1)
-        int expectedId = 6;
+        int expectedId = 1;
         String expectedName = "Biddy";
         String expectedBrand = "Booboo's";
         String expectedSport = "Sleep";

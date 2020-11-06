@@ -8,7 +8,7 @@ public class ToesocksTest {
     @Test
     public void constructorTest() {
         //given (1)
-        int expectedId = 6;
+        int expectedId = 1;
         String expectedName = "Floofy";
         String expectedBrand = "Booboo's";
         String expectedSport = "Couch";
