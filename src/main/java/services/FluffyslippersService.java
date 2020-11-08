@@ -20,21 +20,17 @@ public class FluffyslippersService {
 
     //read
     public Fluffyslippers findFluffyslippers(int id) {
-        // should take an int and return an object with that id, if exists
         return inventory.get(id);
     }
 
     //read all
     public Fluffyslippers[] findAll() {
-        // should return a basic array copy of the ArrayList
         Fluffyslippers[] slipperInventory = (Fluffyslippers[]) inventory.toArray();
         return slipperInventory;
     }
 
     //delete
     public boolean delete(int id) {
-        // should remove the object with this id from the ArrayList if exits and return true.
-        // Otherwise return false
         if (inventory.contains(id)){
             inventory.remove(id);
             return true;

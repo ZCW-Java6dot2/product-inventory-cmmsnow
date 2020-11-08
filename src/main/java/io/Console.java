@@ -63,6 +63,9 @@ public class Console {
                     break;
                 }
 
+            case "c":
+                
+
             default:
                 System.out.println("Entered invalid selection.");
         }
