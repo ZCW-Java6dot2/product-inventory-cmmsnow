@@ -3,7 +3,7 @@ package io;
 import services.FluffyslippersService;
 
 public class App {
-    private FluffyslippersService fluffyslippersService = new FluffyslippersService(); // (1)
+    FluffyslippersService newService = new FluffyslippersService();
 
     public static void main(String... args){
         App application = new App(); // (2)
@@ -11,8 +11,6 @@ public class App {
     }
 
     public void init(){
-        // (4) application logic here - call methods to take user input and interface with services
-        FluffyslippersService newService = new FluffyslippersService();
         boolean isOn = true;
         Console.printWelcome();
 

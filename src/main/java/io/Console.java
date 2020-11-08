@@ -7,24 +7,19 @@ import java.util.Scanner;
 
 public class Console {
     public static void printWelcome(){
-        System.out.println("" +
-                "**************************************************" +
-                "***           Welcome and Bienvenue            ***" +
-                "***                    to                      ***" +
-                "***          ZipCo Inventory Manager           ***" +
-                "**************************************************");
+        System.out.println("***** Welcome to Fluff Inventory *****");
     }
 
     static Scanner scan = new Scanner(System.in);
 
     public static String printMenu(){
         String selection;
-        System.out.println("Type letter of preferred action:");
-        System.out.println("a: create different products");
-        System.out.println("b: read from existing products");
-        System.out.println("c: update products");
-        System.out.println("d: delete products");
-        System.out.println("e: get reports");
+        System.out.println("Type letter of preferred Fluffyslipper action:");
+        System.out.println("a: create different slippers");
+        System.out.println("b: read from existing slippers");
+        System.out.println("c: update slippers");
+        System.out.println("d: delete slippers");
+        System.out.println("e: get information report");
         System.out.println("f: exit program");
         selection = scan.nextLine();
         return selection;
@@ -46,8 +41,9 @@ public class Console {
                 System.out.println("Enter Fluffyslippers quantity");
                 int quantity = scan.nextInt();
                 System.out.println("Enter Fluffyslippers price");
-                float price = scan.nextFloat();
-                fluffyslippersService.create(name, brand, sport, size, quantity, price);
+                double price = scan.nextDouble();
+                float fprice = (float) price;
+                fluffyslippersService.create(name, brand, sport, size, quantity, fprice);
                 break;
 
             case "b":
@@ -64,10 +60,34 @@ public class Console {
                 }
 
             case "c":
-                
+                System.out.println("Enter ID of item to update its quantity:");
+                int updateMe = Console.scan.nextInt();
+                Fluffyslippers slippersToUpdate = fluffyslippersService.findFluffyslippers(updateMe);
+                System.out.println("Enter new quantity of item:");
+                int newQty = Console.scan.nextInt();
+                slippersToUpdate.setQty(newQty);
+                System.out.println("Quantity of " + updateMe + " set to " + newQty + ".");
+                break;
 
-            default:
-                System.out.println("Entered invalid selection.");
+            case "d":
+                System.out.println("Enter ID of item you wish to delete:");
+                int deleteMe = Console.scan.nextInt();
+                boolean deleted = fluffyslippersService.delete(deleteMe);
+                if (deleted){
+                    System.out.println("Successfully deleted.");
+                } else {
+                    System.out.println("Not a valid ID. Item not deleted.");
+                }
+                break;
+
+            case "e":
+                System.out.println("Enter ID of item to see information:");
+                int retrieveIdPrice = Console.scan.nextInt();
+                float cost = fluffyslippersService.findFluffyslippers(retrieveIdPrice).getPrice();
+                System.out.println("The price is " + cost + " dollars.");
+
+            //default:
+                //System.out.println("Entered invalid selection.");
         }
     }
 }
