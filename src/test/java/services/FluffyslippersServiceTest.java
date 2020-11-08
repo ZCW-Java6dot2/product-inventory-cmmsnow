@@ -41,42 +41,52 @@ public class FluffyslippersServiceTest {
     }
 
     public void findFluffyslippersTest(){
-        //(1)expected
-        int expectedId = 4;
-
-        //(2)
+        //
         FluffyslippersService fluffyslippersService = new FluffyslippersService();
-        Fluffyslippers testFluffyslippers = fluffyslippersService.findFluffyslippers(int id);
+        Fluffyslippers testFluffyslippers = fluffyslippersService.create("Biddy", "Booboo's", "Sleep", 7, 10, 15.00f);
 
-        //(3)actual
-        int actualId = testFluffyslippers.getId();
 
-        //(4)assertEquals
-        Assertions.assertEquals(expectedId, actualId);
+        //assertEquals
+        Fluffyslippers expectedFluffyslippers = fluffyslippersService.findFluffyslippers(0);
+        Assertions.assertEquals(expectedFluffyslippers, testFluffyslippers);
     }
 
     public void findAllTest(){
-        //(1)expected
+        FluffyslippersService fluffyslippersService = new FluffyslippersService();
+        Fluffyslippers[] fluffArray = new Fluffyslippers[2];
+
+        //(1)
+        Fluffyslippers testSlippers0 = fluffyslippersService.create("Biddy", "Booboo's", "Sleep", 7, 10, 15.00f);
+        Fluffyslippers expectedFluffyslippers0 = fluffyslippersService.findFluffyslippers(0);
+        fluffArray[0] = testSlippers0;
+        Assertions.assertEquals(expectedFluffyslippers0, testSlippers0);
 
         //(2)
-        FluffyslippersService fluffyslippersService = new FluffyslippersService();
-        Fluffyslippers testFluffyslippers = fluffyslippersService.findAll();
+        Fluffyslippers testSlippers1 = fluffyslippersService.create("Hunny", "Booboo's", "Sleep", 7, 10, 15.00f);
+        Fluffyslippers expectedFluffyslippers1 = fluffyslippersService.findFluffyslippers(1);
+        fluffArray[1] = testSlippers1;
+        Assertions.assertEquals(expectedFluffyslippers1, testSlippers1);
 
-        //(3)actual
-        int actualId;
+        //(3) expected
+        Fluffyslippers[] fluffExpected = fluffyslippersService.findAll();
 
-        //(4)assertEquals
+        //(4) assertEquals
+        Assertions.assertEquals(fluffArray[0], fluffExpected[0]);
+        Assertions.assertEquals(fluffArray[1], fluffExpected[1]);
     }
 
     public void deleteTest(){
+        FluffyslippersService fluffyslippersService = new FluffyslippersService();
+
         //(1) expected
+        Fluffyslippers testSlippers0 = fluffyslippersService.create("Biddy", "Booboo's", "Sleep", 7, 10, 15.00f);
+        Fluffyslippers testSlippers1 = fluffyslippersService.create("Hunny", "Booboo's", "Sleep", 7, 10, 15.00f);
 
         //(2)
-        Fluffyslippers fluffyslippersService = new FluffyslippersService();
-        //Fluffyslippers testFluffyslippers = fluffyslippersService.delete(int id);
+        boolean fluffExpected = fluffyslippersService.delete(1);
 
-        //(3) actual
-
-        //(4) assertEquals(expected, actual)
+        //(3) assertEquals
+        Assertions.assertEquals(fluffExpected, true);
+        Assertions.assertEquals(fluffyslippersService.findFluffyslippers(1), null);
     }
 }

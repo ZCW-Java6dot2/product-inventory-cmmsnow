@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class FluffyslippersService {
     //create ID numbers for new objects
-    private static int nextId = 1;
+    private static int nextId = 0;
 
     //collection that will hold all the objects
     private ArrayList<Fluffyslippers> inventory = new ArrayList<>();
