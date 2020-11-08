@@ -1,6 +1,7 @@
 package services;
 
 import models.Fluffyslippers;
+import models.Toesocks;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -37,5 +38,45 @@ public class FluffyslippersServiceTest {
         Assertions.assertEquals(expectedSize, actualSize);
         Assertions.assertEquals(expectedQty, actualQty);
         Assertions.assertEquals(expectedPrice, actualPrice);
+    }
+
+    public void findFluffyslippersTest(){
+        //(1)expected
+        int expectedId = 4;
+
+        //(2)
+        FluffyslippersService fluffyslippersService = new FluffyslippersService();
+        Fluffyslippers testFluffyslippers = fluffyslippersService.findFluffyslippers(int id);
+
+        //(3)actual
+        int actualId = testFluffyslippers.getId();
+
+        //(4)assertEquals
+        Assertions.assertEquals(expectedId, actualId);
+    }
+
+    public void findAllTest(){
+        //(1)expected
+
+        //(2)
+        FluffyslippersService fluffyslippersService = new FluffyslippersService();
+        Fluffyslippers testFluffyslippers = fluffyslippersService.findAll();
+
+        //(3)actual
+        int actualId;
+
+        //(4)assertEquals
+    }
+
+    public void deleteTest(){
+        //(1) expected
+
+        //(2)
+        Fluffyslippers fluffyslippersService = new FluffyslippersService();
+        //Fluffyslippers testFluffyslippers = fluffyslippersService.delete(int id);
+
+        //(3) actual
+
+        //(4) assertEquals(expected, actual)
     }
 }

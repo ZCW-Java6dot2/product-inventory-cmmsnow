@@ -39,4 +39,44 @@ public class ToesocksServiceTest {
         Assertions.assertEquals(expectedQty, actualQty);
         Assertions.assertEquals(expectedPrice, actualPrice);
     }
+
+    public void findToesocksTest(){
+        //(1)expected
+        int expectedId = 4;
+
+        //(2)
+        ToesocksService toesocksService = new ToesocksService();
+        Toesocks testToesocks = toesocksService.findToesocks(int id);
+
+        //(3)actual
+        int actualId = testToesocks.getId();
+
+        //(4)assertEquals
+        Assertions.assertEquals(expectedId, actualId);
+    }
+
+    public void findAllTest(){
+        //(1)expected
+
+        //(2)
+        ToesocksService toesocksService = new ToesocksService();
+        Toesocks testToesocks = toesocksService.findAll();
+
+        //(3)actual
+        int actualId;
+
+        //(4)assertEquals
+    }
+
+    public void deleteTest(){
+        //(1) expected
+
+        //(2)
+        ToesocksService toesocksService = new ToesocksService();
+        //Toesocks testToesocks = toesocksService.delete(int id);
+
+        //(3) actual
+
+        //(4) assertEquals(expected, actual)
+    }
 }
