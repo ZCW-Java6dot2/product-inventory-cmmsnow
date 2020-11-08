@@ -2,6 +2,9 @@ package io;
 
 import services.FluffyslippersService;
 
+//
+//csv and JSON still need some work
+//
 public class App {
     FluffyslippersService newService = new FluffyslippersService();
 
