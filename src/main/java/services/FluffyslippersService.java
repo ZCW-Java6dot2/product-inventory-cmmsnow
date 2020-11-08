@@ -1,5 +1,10 @@
 package services;
 import java.io.*;
+
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import com.fasterxml.jackson.core.type.TypeReference;
 import models.Fluffyslippers;
 import Utils.CSVUtils;
 import java.util.ArrayList;
@@ -99,5 +104,16 @@ public class FluffyslippersService {
             e.printStackTrace();
         }
     }
+    public void loadDataUsingJSON() throws IOException {
 
+        ObjectMapper objectMapper = new ObjectMapper();
+        this.inventory = objectMapper.readValue(new File("/Users/christine/Dev/product-inventory-cmmsnow/fluffyslippers.json"), new TypeReference<ArrayList<Fluffyslippers>>(){});
+    }
+
+    public  void saveInventoryFluffyslippers() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+        writer.writeValue(new File("/Users/christine/Dev/product-inventory-cmmsnow/fluffyslippers.json"), inventory);
+
+    }
 }
